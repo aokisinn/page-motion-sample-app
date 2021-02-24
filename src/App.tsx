@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import None from "./pages/None";
+import Left from "./pages/Left";
+import Right from "./pages/Right";
+import Under from "./pages/Under";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <main role="main" className="pt-5">
+          <Switch>
+            <Route exact path="/" component={None} />
+            <Route exact path="/left" component={Left} />
+            <Route exact path="/right" component={Right} />
+            <Route exact path="/under" component={Under} />
+          </Switch>
+        </main>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
